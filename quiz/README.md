@@ -38,3 +38,30 @@ https://campusvirtual.ull.es/1516/pluginfile.php/161441/mod_resource/content/3/t
 
     $ SET DEBUG=quiz:*
     $ npm start
+
+## Layout & partial
+
+### Install the package express-partials
+#### última versión estable
+
+   $ npm install --save express-partials
+
+#### versión del proyecto
+
+    $ npm install --save express-partials@0.3.0
+
+### Importar/instalar MW 	express-partials en app.js
+#### añadir las linas	 
+
+ `var partials = require('express-partials');`
+ `app.use(partials());`
+
+### Añadir	marco único (views/layout.ejs) con las marcas HTML5
+  `<header>`
+  `<nav>`
+  `<section> body changes for each view`
+  `<footer>`
+
+ - nota : The view layout.ejs has common code as template, only the body code
+in <section > which changes for each view, the others views have only
+their own code of body.
