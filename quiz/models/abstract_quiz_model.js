@@ -12,6 +12,10 @@ AbstractQuiz.prototype.randomQuestion = function() {
     return {index : index, question: this.q[index]};
 }
 
+AbstractQuiz.prototype.quizLength = function() {
+  return this.q.length;
+}
+
 AbstractQuiz.prototype.getQuestion = function(index) {
     return this.q[index];
 }

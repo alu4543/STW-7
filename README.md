@@ -68,7 +68,8 @@ in <section > which will be changed for each view, the others views have only
 their own code of body.
 
 ## Multiple questions
-### The Model based on a JavaScript class. No database
+### No database
+- The Model based on a JavaScript class. No database
 
 #### Model
  - The directory models is added
@@ -90,6 +91,49 @@ Also had to modify the route /quizes/answer to redirect it to `quizController.an
 
 so we changed the action where to send the question
 
-    `<form method="get" action="/quizes/answer/<%= index %>">`
+  `<form method="get" action="/quizes/answer/<%= index %>">`
 
   See the file  `question.ejs` in the Directory `views\quizes\`
+
+## question routes modification
+
+First we will add a link in  `views\layout.ejs` to the list of questions that we will create.
+`<span><a href="/quizes/questions">Lista de Preguntas</a></span>`
+
+### route /quizes/questions
+For add the route /quizes/questions for lists all the questions.
+1. in the controller `controllers\quiz_controller.js`
+we need to add a function `exports.questions` for render a list of question to the route `quizes/questions`
+
+  `res.render('quizes/questions', {list: questions});`
+
+2. Also had to add a new route in `routes\index.js` to the function `exports.questions`
+
+  `router.get('/quizes/questions', quizController.questions);`
+
+3. we had to create a function in `models\abstract_quiz_model.js` that returns the number of questions in a quiz.
+
+  `AbstractQuiz.prototype.quizLength = function() {
+    return this.q.length;
+  }`
+
+### link for question content.
+to make in the list each statement of the question is a link that for question content.
+1. We create a new view
+`views\quizes\questions.ejs`
+which assigns and shows list of questions exported `exports.questions` from the controller `controllers\quiz_controller.js`
+
+`for(var i = 0; i < list.length; i++){
+  <li> <a href="/quizes/questions/<%= i+1 %>"><%- list[i].pregunta %></a></li>
+}`
+
+### /quizes/questions/5 for showing the question number 5 .
+Add routes (for example) /quizes/questions/5 for showing the question number 5 .
+1. in the controller `controllers\quiz_controller.js`
+we need to add a function `exports.questionId` for render a specific question to the route `quizes/questions/:index`
+
+  `res.render('quizes/question', {pregunta: current.pregunta, index: index);`
+
+2. Also had to add a new route in `routes\index.js` to the function `exports.questionId`
+
+  `router.get('/quizes/questions/:index', quizController.questionId);`
