@@ -137,3 +137,8 @@ we need to add a function `exports.questionId` for render a specific question to
 2. Also had to add a new route in `routes\index.js` to the function `exports.questionId`
 
   `router.get('/quizes/questions/:index', quizController.questionId);`
+  
+## Links :
+* **[iaas Deployment](http://10.6.128.187:8083)**
+* **[GitHub](https://github.com/alu4543/STW-7)**
+* **[web de la asignatura](http://alu4543.github.io/)**
