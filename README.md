@@ -95,7 +95,7 @@ so we changed the action where to send the question
 
   See the file  `question.ejs` in the Directory `views\quizes\`
 
-## question routes modification
+## questions routes modification
 
 First we will add a link in  `views\layout.ejs` to the list of questions that we will create.
 `<span><a href="/quizes/questions">Lista de Preguntas</a></span>`
