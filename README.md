@@ -50,6 +50,8 @@ https://campusvirtual.ull.es/1516/pluginfile.php/161441/mod_resource/content/3/t
 
     $ npm install --save express-partials@0.3.0
 
+opción --save guarda dependencia en package.json
+
 ### Import/install MW	express-partials in app.js
 #### add lines in app.js
 
@@ -137,7 +139,7 @@ we need to add a function `exports.questionId` for render a specific question to
 2. Also had to add a new route in `routes\index.js` to the function `exports.questionId`
 
   `router.get('/quizes/questions/:index', quizController.questionId);`
-  
+
 ## Links :
 * **[iaas Deployment](http://10.6.128.187:8083)**
 * **[GitHub](https://github.com/alu4543/STW-7)**
